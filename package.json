@@ -1,0 +1,15 @@
+{
+  "name": "microgame",
+  "version": "1.0.0",
+  "description": "Micro JS engine for making Games",
+  "main": "index.js",
+  "repository": "git@github.com:Tote/micro.git",
+  "author": "Patricio Morel <patricio.morel.lucero@everis.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "jest": "^23.6.0"
+  },
+  "scripts": {
+    "test": "jest"
+  }
+}
