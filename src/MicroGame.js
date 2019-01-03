@@ -1,6 +1,7 @@
 class MicroGame{
 	constructor(){
-	this.rules= []	
+		this.rules = []
+		this.elements = []
 	}
 
 	run(){
@@ -9,7 +10,7 @@ class MicroGame{
 			.forEach( rule => rule.then() )
 	}
 
-	rule( rule  ){
+	rule( rule ){
 		this.rules.push(rule)
 	}
 
