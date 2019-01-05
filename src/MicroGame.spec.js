@@ -1,9 +1,9 @@
 const MicroGame = require('./MicroGame.js')
 
 let game 
-let randomRule = {
-	when: () => true,
-	then: () => false
+let mockRule = {
+	when: jest.fn(() => true),
+	then: jest.fn(() => true)
 }  
 
 beforeEach( () => {
@@ -52,16 +52,10 @@ describe('Game Loop', () => {
 	})
 
 	test('Check All Rules', () => {
+		game.rule(mockRule)
 		game.run()
-		game.rule(randomRule)
 		game.rules.forEach( 
 			rule => expect(rule.when).toHaveBeenCalled()
-		)
-	})
-	test('Update All Elements', () => {
-		game.run()
-		game.elements.forEach( 
-			element => expect(element.update).toHaveBeenCalled()
 		)
 	})
 })

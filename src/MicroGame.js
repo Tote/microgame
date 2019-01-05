@@ -1,7 +1,6 @@
 class MicroGame{
 	constructor(){
 		this.rules = []
-		this.elements = []
 	}
 
 	run(){
