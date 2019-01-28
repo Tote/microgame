@@ -47,11 +47,24 @@ describe('Rules', () => {
 })
 
 describe('Game Loop', () => {
+	jest.useFakeTimers()
+
+	beforeEach( () => {
+		game.run = jest.fn(game.run)
+		game.loopFn = loop => setTimeout(loop, 1000)
+	})
+
 	test('Can run', () => {
 		expect(game.run).toBeDefined()
 	})
 
-	test('Check All Rules', () => {
+	test('Repeats itself', () => {
+		game.run()
+		jest.runOnlyPendingTimers()
+		expect(game.run.mock.calls.length).toBeGreaterThan(1)
+	})
+
+	test('Checks All Rules', () => {
 		game.rule(mockRule)
 		game.run()
 		game.rules.forEach( 
